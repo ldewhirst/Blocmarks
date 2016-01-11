@@ -1,2 +1,8 @@
-<h1>Topics#index</h1>
-<p>Find me in app/views/topics/index.html.erb</p>
+<h1>Topics</h1>
+
+
+  <div class="col-md-4" id="center">
+    <% if user_signed_in? %>
+      <%= link_to "New Topic", topics_new_path, class: 'btn btn-success' %>
+    <% end %>
+  </div>
