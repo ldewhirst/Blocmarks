@@ -7,10 +7,6 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
 
-    if user_not_sign_in?
-      flash.now[:alert] = "You must be signed in to view this topic"
-      redirect_to new_user_session_path
-    end
   end
 
   def new
