@@ -20,17 +20,25 @@
          </button>
          <a class="navbar-brand" href="/">Blocmarks</a>
        </div>
-        <ul class="nav nav-tabs">
-            <li><%= link_to "Home", root_path %></li>
 
-          <% if user_signed_in? %>
-        <li>Signed in as: <strong><%= current_user.email %></strong></li>
-        <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
-        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </li>
-          <% else %>
-        <li><%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> </li>
-        <li><%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %> </li>
-          <% end %>
+         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+              aria-haspopup="true" aria-expanded="false">Welcome, <% current_user.email %>!
+               <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/users/edit">Edit Profile</a></li>
+                <li><a href="/users/sign_out">Log Out</a></li>
+              </ul>
+              <% else %>
+            <li class="active"><a href="/users/sign_up">Sign Up</a></li>
+            <li class="active"><a href="/users/sign_in">Sign In</a></li>
+              <% end %>
         </ul>
       </div>
     </nav>
