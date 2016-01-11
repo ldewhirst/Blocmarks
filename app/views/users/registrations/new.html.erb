@@ -1,38 +1,46 @@
-<h2>Sign up</h2>
+<div class="container container-table">
+  <div class="row vertical-center-row">
+    <div class="text-center col-md-4 col-md-offset-4">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name),
-    html: { class: 'form-horizontal'}) do |f| %>
-  <%= devise_error_messages! %>
+        <h2>Sign up</h2>
 
-  <div class="field">
-    <%= f.label :email, class: 'col-lg-2 control-label' %><br />
-    <div class="col-lg-4">
-    <%= f.email_field :email, autofocus: true, size: 10, class: "form-control" %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
+            html: { class: 'form-horizontal'}) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="field">
+            <%= f.label :email, class: 'col-lg-2 control-label' %><br />
+            <div class="col-lg-4">
+            <%= f.email_field :email, autofocus: true, size: 10, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <% end %><br />
+            <div class="col-lg-4">
+            <%= f.password_field :password, autocomplete: "off", size: 25, class: "form-control" %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <div class="col-lg-4">
+            <%= f.password_field :password_confirmation, autocomplete: "off", size: 25, class: "form-control"  %>
+          </div>
+          </div>
+
+          <div class="actions">
+            <div class="col-lg-10 col-lg-offset-2">
+            <%= f.submit "Sign up", class: 'btn btn-primary' %>
+            </div>
+          </div>
+        <% end %>
+
+        <%= render "users/shared/links" %>
+
+      </div>
     </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <% end %><br />
-    <div class="col-lg-4">
-    <%= f.password_field :password, autocomplete: "off", size: 25, class: "form-control" %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-    </div>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <div class="col-lg-4">
-    <%= f.password_field :password_confirmation, autocomplete: "off", size: 25, class: "form-control"  %>
-  </div>
-  </div>
-
-  <div class="actions">
-    <div class="col-lg-10 col-lg-offset-2">
-    <%= f.submit "Sign up", class: 'btn btn-primary' %>
-    </div>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
