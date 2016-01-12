@@ -26,33 +26,19 @@
             <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
             <li><%= link_to 'Topics', topics_path %></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-              <% if user_signed_in? %>
-            <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-              aria-haspopup="true" aria-expanded="false">Welcome, <%= current_user.email %>!
-               <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">My Blockmarks</a></li>
-                <li><a href="/users/edit">Edit Profile</a></li>
-                <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-              </ul>
-              <% else %>
-            <li class="active"><a href="/users/sign_up">Sign Up</a></li>
-            <li class="active"><a href="/users/sign_in">Sign In</a></li>
-              <% end %>
-        </ul>
-      </div>
+        </div>
     </nav>
 
-<div="container">
-<div="row">
-<%= yield %>
-</div>
-</div>
+    <div class="container">
+      <div class="row row-centered">
+        <div class="col-md-6 col-md-offset-3">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-</body>
+  </body>
 </html>
