@@ -27,6 +27,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap_form'
 gem 'bootswatch-rails'
 gem 'devise'
+gem 'faker'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
