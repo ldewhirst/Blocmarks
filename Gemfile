@@ -27,6 +27,7 @@ gem 'bootswatch-rails'
 gem 'devise'
 gem 'faker'
 gem 'figaro', '1.0'
+gem 'pry'
 
 
 # Use ActiveModel has_secure_password
