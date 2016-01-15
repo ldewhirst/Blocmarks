@@ -5,18 +5,18 @@ class IncomingController < ApplicationController
   def create
 
     puts "INCOMING PARAMS HERE: #{params}"
-    @user = User.find_by(email: params[:sender])
-    @topic = Topic.find_by(title: params[:subject])
-    @url = params[:"body-plain"]
+    @user = User.find_by(email: params["sender"])
+    @topic = Topic.find_by(title: params["subject"])
+    @url = params["body-plain"]
 
     if @user.nil?
-      @user = User.new(email: params[:sender], password: "hell0_w0rld")
+      @user = User.new(email: params["sender"], password: "hell0_w0rld")
       @user.skip_confirmation!
       @user.save
     end
 
     if @topic.nil?
-      @topic = @user.topics.create(title: params[:subject])
+      @topic = @user.topics.create(title: params["subject"])
       topic.save!
     end
 
