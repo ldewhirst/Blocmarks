@@ -7,7 +7,8 @@ class IncomingController < ApplicationController
     puts "INCOMING PARAMS HERE: #{params}"
     @user = User.find_by(email: params["sender"])
     @topic = Topic.find_by(title: params["subject"])
-    @url = params["body-plain"]
+    @url = params[:"body-plain"]
+    puts @url
 
     if @user.nil?
       @user = User.new(email: params["sender"], password: "hell0_w0rld")
