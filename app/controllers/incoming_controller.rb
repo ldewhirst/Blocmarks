@@ -12,6 +12,7 @@ class IncomingController < ApplicationController
       @user = User.new(email: params[:sender], password: "hell0_w0rld")
       @user.skip_confirmation!
       @user.save
+    end
 
     if @topic.nil?
       @topic = @user.topics.create(title: params[:subject])
