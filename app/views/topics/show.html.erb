@@ -23,10 +23,14 @@
   </div>
   <div class="row">
     <div class="col-md-4"></br>
-      <%= link_to "Edit Topic", edit_topic_path(@topic), class: 'btn btn-success' %>
+      <% if policy(@topic).edit? %>
+        <%= link_to "Edit Topic", edit_topic_path(@topic), class: 'btn btn-success' %>
+      <% end %>
     </div>
     <div class="col-md-4"></br>
-      <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger' %>
+      <% if policy(@topic).destroy? %>
+        <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger' %>
+      <% end %>
     </div>
   </div>
 

@@ -1,11 +1,14 @@
 class BookmarksController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
+
   def show
     @bookmark = Bookmark.find(params[:id])
   end
 
   def new
     @topic = Topic.find(params[:topic_id])
-    @bookmark = Bookmark.new
+    @bookmark = Bookmark.new(params[:id])
+    @users = User.all
 
   end
 
@@ -13,6 +16,7 @@ class BookmarksController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @bookmark = @topic.bookmarks.new
     @bookmark.url = params[:bookmark][:url]
+    @bookmark.user_id = current_user.id
 
     if @bookmark.save
       flash[:notice] = "Bookmark was saved."
@@ -26,12 +30,13 @@ class BookmarksController < ApplicationController
   def edit
     @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:id])
+    @users = User.all
   end
 
   def update
     @bookmark = Bookmark.find(params[:id])
 
-    if @bookmark.update(bookmark_params)
+    if @bookmark.update_attributes(bookmark_params)
       flash[:notice] = "Bookmark was updated."
       redirect_to [@bookmark.topic, @bookmark]
     else

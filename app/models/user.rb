@@ -5,5 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :topics
+  has_many :bookmarks
+
+  before_save { self.role ||= :member }
+
+  enum role: [:member, :admin]
 
 end
