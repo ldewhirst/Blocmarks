@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     resources :bookmarks
   end
 
+  resources :bookmarks do
+      resources :likes, only: [:create, :destroy]
+  end
+
   devise_for :users
 
   get 'welcome/index'
