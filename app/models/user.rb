@@ -8,20 +8,14 @@ class User < ActiveRecord::Base
   has_many :bookmarks, dependent: :destroy
   has_many :likes, dependent: :destroy
 
+  has_many :liked_bookmarks, through: :likes, source: :bookmark
+
   before_save { self.role ||= :member }
 
   enum role: [:member, :admin]
 
   def liked(bookmark)
     likes.where(bookmark_id: bookmark.id).first
-  end
-
-  def liked_bookmarks
-    Like.includes(:bookmark)
-  end
-
-  def user_bookmarks
-    User.includes(:bookmarks)
   end
 
 end

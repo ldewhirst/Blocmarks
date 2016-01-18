@@ -4,7 +4,7 @@
   <% end %>
 
 <h1>Liked Blocmarks</h1>
-  <%= @liked_bookmarks.each do |bookmark| %>
-    <% link_to bookmark.url %>
+  <% @liked_bookmarks.each do |bookmark| %>
+    <%= link_to bookmark.url, [bookmark.topic, bookmark] %>
+    <%= render partial: 'likes/like', locals: { bookmark: bookmark } %></br>
   <% end %>
-  <%= render partial: 'likes/like', locals: { bookmark: @bookmark } %></br>
