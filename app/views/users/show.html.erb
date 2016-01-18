@@ -1,10 +1,17 @@
-<h1>My Blocmarks</h1>
-  <% @user_bookmarks.each do |bookmark| %>
-    <%= link_to bookmark.url %>
-  <% end %>
+<div class="container">
+  <div class="row row-centered">
+    <div class="col-md-6 col-md-offset-4">
+      <h1>My Blocmarks</h1>
+        <% @user_bookmarks.each do |bookmark| %>
+          <%= link_to bookmark.url %>
+    </div>
+    <div class="col-m-6 col-md-offset-4"
+          <%= embedly_preview(bookmark) %>
+        <% end %>
+    </div>
 
-<h1>Liked Blocmarks</h1>
-  <% @liked_bookmarks.each do |bookmark| %>
-    <%= link_to bookmark.url, [bookmark.topic, bookmark] %>
-    <%= render partial: 'likes/like', locals: { bookmark: bookmark } %></br>
-  <% end %>
+      <h1>Liked Blocmarks</h1>
+        <% @liked_bookmarks.each do |bookmark| %>
+          <%= link_to bookmark.url, [bookmark.topic, bookmark] %>
+          <%= render partial: 'likes/like', locals: { bookmark: bookmark } %></br>
+        <% end %>
