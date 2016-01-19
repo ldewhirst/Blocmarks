@@ -15,3 +15,14 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+
+
+
+<script src="/path/to/masonry.pkgd.min.js"></script>
+
+var $grid = $('.grid').masonry({
+});
+$grid.imagesLoaded().progress( function() {
+  $grid.masonry('layout');
+});

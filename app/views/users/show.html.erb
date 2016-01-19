@@ -1,13 +1,20 @@
 <div class="container">
   <div class="row row-centered">
-    <div class="col-md-6 col-md-offset-4">
+    <div class="col-md-6 col-md-offset-3">
+
+<div class="grid-item--width2">
+</div>
+<div class="grid">
       <h1>My Blocmarks</h1>
         <% @user_bookmarks.each do |bookmark| %>
-          <%= link_to bookmark.url %>
-    </div>
-    <div class="col-m-6 col-md-offset-4"
-          <%= embedly_preview(bookmark) %>
+          <%= link_to embedly_preview(bookmark) %>
+
         <% end %>
+</div>
+<div class="grid-item--width2">
+</div>
+    <div class="col-m-6 col-md-offset-4">
+
     </div>
 
       <h1>Liked Blocmarks</h1>
@@ -15,3 +22,7 @@
           <%= link_to bookmark.url, [bookmark.topic, bookmark] %>
           <%= render partial: 'likes/like', locals: { bookmark: bookmark } %></br>
         <% end %>
+
+    </div>
+  </div>
+</div>

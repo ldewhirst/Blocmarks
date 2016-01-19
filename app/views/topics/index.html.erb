@@ -1,29 +1,32 @@
-
-
 <div class="container">
   <div class="row row-centered">
     <div class="col-md-6 col-md-offset-4">
-      <h1>All Blocmarks</h1>
+      <h1>Blocmark Topics</h1>
     </div>
   </div>
 </div>
 
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-          <% @topics.each do |topic| %>
-              <h4 class="media-heading">
-            <%= link_to topic.title, topic %>
-          </h4>
-          <% end %>
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <% @topics.each do |topic| %>
+        <ul class="list-group">
+          <li class="list-group-item"><%= link_to topic.title, topic %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
 
 <div class="container">
   <div class="row row-centered">
-    <div class="col-md-8 col-md-offset-4">
+    <div class="col-md-6 col-md-offset-5">
       <% if user_signed_in? %>
         <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
       <% end %>
     </div>
   </div>
+</div>
+
+</div>
+</div>
 </div>
