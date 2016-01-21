@@ -30,6 +30,7 @@ gem 'faker'
 gem 'figaro', '1.0'
 gem 'pry'
 gem 'pundit'
+gem 'masonry-rails'
 
 
 # Use ActiveModel has_secure_password

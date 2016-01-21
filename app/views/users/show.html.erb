@@ -5,24 +5,37 @@
     </div>
   </div>
 </div>
-<div class="grid">
-
-        <% @user_bookmarks.each do |bookmark| %>
-          <%= link_to embedly_preview(bookmark) %>
-
-        <% end %>
-</div>
+  <div class="row masonry-container">
+      <% @user_bookmarks.each do |bookmark| %>
+      <div class="box col-md-4">
+        <div class="thumbnail">
+            <%= link_to embedly_preview(bookmark) %>
+        <div class="caption">
+            <%= link_to bookmark.url, [bookmark.topic, bookmark] %>
+          </div>
+        </div>
+    </div>
+      <% end %>
+  </div>
 <div class="grid-item--width2">
 </div>
-    <div class="col-m-6 col-md-offset-4">
-
-    </div>
-
+<div class="container">
+  <div class="row row-centered">
+    <div class="col-md-6 col-md-offset-3">
       <h1>Liked Blocmarks</h1>
-        <% @liked_bookmarks.each do |bookmark| %>
-          <%= link_to bookmark.url, [bookmark.topic, bookmark] %>
-          <%= render partial: 'likes/like', locals: { bookmark: bookmark } %></br>
-        <% end %>
+      <div class="row masonry-container">
+          <% @liked_bookmarks.each do |bookmark| %>
+          <div class="box col-md-5">
+            <div class="thumbnail">
+                <%= link_to embedly_preview(bookmark) %>
+            <div class="caption">
+                <%= link_to bookmark.url, [bookmark.topic, bookmark] %>
+            </div>
+            <%= render partial: 'likes/like', locals: { bookmark: bookmark } %></br>
+            </div>
+        </div>
+          <% end %>
+      </div>
 
     </div>
   </div>

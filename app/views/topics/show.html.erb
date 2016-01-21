@@ -8,26 +8,23 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
+<div class="row masonry-container">
     <% @topic.bookmarks.each do |bookmark| %>
-    <div class="row">
-        <div class="item">
+    <div class="box col-md-4">
+      <div class="thumbnail">
           <%= link_to embedly_preview(bookmark) %>
+      <div class="caption">
           <%= link_to bookmark.url, topic_bookmark_path(@topic, bookmark) %>
         </div>
       </div>
   </div>
     <% end %>
-    </div>
-  </div>
 </div>
 
-  <div class="row">
-    <div class="col-md-4">
+<div class="container">
+  <div class="row row-centered">
+    <div class="col-md-6 col-md-offset-4">
     <%= link_to "New Bookmark", new_topic_bookmark_path(@topic), class: 'btn btn-success' %>
-    </div>
-  </div>
   <div class="row">
     <div class="col-md-4"></br>
       <% if policy(@topic).edit? %>
@@ -40,3 +37,7 @@
       <% end %>
     </div>
   </div>
+
+</div>
+</div>
+</div>
