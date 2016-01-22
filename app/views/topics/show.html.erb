@@ -12,7 +12,7 @@
     <% @topic.bookmarks.each do |bookmark| %>
     <div class="box col-md-4">
       <div class="thumbnail">
-          <%= link_to embedly_preview(bookmark) %>
+          <%= link_to embedly_preview(bookmark), topic_bookmark_path(@topic, bookmark) %>
       <div class="caption">
           <%= link_to bookmark.url, topic_bookmark_path(@topic, bookmark) %>
         </div>
