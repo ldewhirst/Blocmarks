@@ -5,7 +5,7 @@
     </div>
   </div>
 </div>
-  <div class="row masonry-container">
+  <div class="row masonry-container margin">
       <% @user_bookmarks.each do |bookmark| %>
       <div class="box col-md-4">
         <div class="thumbnail">
@@ -23,9 +23,9 @@
   <div class="row row-centered">
     <div class="col-md-6 col-md-offset-4">
       <h1>Liked Blocmarks</h1>
-      <div class="row masonry-container">
+      <div class="row masonry-container margin">
           <% @liked_bookmarks.each do |bookmark| %>
-          <div class="box col-md-5">
+          <div class="box col-md-6">
             <div class="thumbnail">
                 <%= link_to embedly_preview(bookmark), [bookmark.topic, bookmark] %>
             <div class="caption">
