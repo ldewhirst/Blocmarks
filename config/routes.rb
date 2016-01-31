@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  authenticated :user do
+    root 'topics#index', as: :authenticated_root
+  end
+
+  # root 'welcome#index'
+
+  devise_for :users
+
+  root 'welcome#index'
+
   get 'users/show'
 
   resources :topics do
@@ -10,14 +20,13 @@ Rails.application.routes.draw do
       resources :likes, only: [:create, :destroy]
   end
 
-  devise_for :users
   resources :users, only: :show
-  
+
   get 'welcome/index'
 
   get 'welcome/about'
 
-  root 'welcome#index'
+
 
   post :incoming, to: 'incoming#create'
 
