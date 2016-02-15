@@ -1,28 +1,8 @@
-== README
+## Blocmarks
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Blocmarks is a social bookmarking application which lets users to bookmark URLs via email
+  or manual submission and maintain a personal catalog of categorized bookmarks.
 
-Things you may want to cover:
+Blocmarks makes use of Devise and Embedly.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Created as a project for the Bloc Rails Web Development track.

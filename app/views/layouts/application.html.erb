@@ -21,9 +21,7 @@
          </button>
          <a class="navbar-brand" href="/">Blocmarks</a>
        </div>
-
-
-         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
             <li><%= link_to 'Topics', topics_path %></li>
@@ -43,17 +41,17 @@
             <li class="active"><a href="/users/sign_up">Sign Up</a></li>
             <li class="active"><a href="/users/sign_in">Sign In</a></li>
               <% end %>
-        </ul>
+          </ul>
       </div>
     </nav>
 
-<div="container">
-<div="row">
-<%= render 'flash' %>
-<%= yield %>
-</div>
-</div>
-
+  <div="container">
+    <div="row">
+     <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
+     <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>
